@@ -29,13 +29,21 @@ namespace FHIR_Creator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            switch (comboType.Text)
+            try
             {
-                case "Patient": break;
-                case "Allergy Intolerance": ReadFhir readFhir = new ReadFhir(
-                    comboCRUD.Text, textboxFhirServer.Text, Int32.Parse(textBoxPatientID.Text));
-                    MessageBox.Show(readFhir.PerformAction());
-                    break;
+                switch (comboType.Text)
+                {
+                    case "Patient": break;
+                    case "Allergy Intolerance":
+                        ReadFhir readFhir = new ReadFhir(
+comboCRUD.Text, textboxFhirServer.Text, Int32.Parse(textBoxPatientID.Text));
+                        MessageBox.Show(readFhir.PerformAction());
+                        break;
+                }
+            }//end try
+            catch(Exception ex)
+            {
+                MessageBox.Show("Sorry something went horribly wrong. Here is the error: "+ex.Message);
             }
         }
     }

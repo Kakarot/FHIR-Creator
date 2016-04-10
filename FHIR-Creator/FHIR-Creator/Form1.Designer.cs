@@ -66,9 +66,9 @@
             "Read",
             "Update",
             "Delete"});
-            this.comboCRUD.Location = new System.Drawing.Point(78, 97);
+            this.comboCRUD.Location = new System.Drawing.Point(109, 97);
             this.comboCRUD.Name = "comboCRUD";
-            this.comboCRUD.Size = new System.Drawing.Size(121, 21);
+            this.comboCRUD.Size = new System.Drawing.Size(62, 21);
             this.comboCRUD.TabIndex = 2;
             this.comboCRUD.Text = "Read";
             this.comboCRUD.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -129,6 +129,7 @@
             this.textBoxPatientID.Size = new System.Drawing.Size(100, 20);
             this.textBoxPatientID.TabIndex = 8;
             this.textBoxPatientID.Text = "6140";
+            this.textBoxPatientID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Form1
             // 
