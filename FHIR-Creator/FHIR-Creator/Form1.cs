@@ -69,5 +69,16 @@ comboCRUD.Text, textboxFhirServer.Text, Int32.Parse(textBoxPatientID.Text));
                 labelAllergyIntoleranceCode.Visible = false;
             }
         }
+
+        private void labelPatientID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonPatient_Click(object sender, EventArgs e)
+        {
+            FormPatient myFormPatient = new FormPatient();
+            myFormPatient.ShowDialog();
+        }
     }
 }

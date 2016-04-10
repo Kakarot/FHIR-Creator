@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Hl7.Fhir.Rest;
+using Hl7.Fhir.Model;
+using System.Net;
 
-
-
-    public class AllergyIntolerance
+public class AllergyIntolerance
     {       
         private FhirClient fhirClient = null;
 
@@ -115,12 +115,40 @@ using Hl7.Fhir.Rest;
         {
             //Create a dictionary for O(1) lookup time later.
             var lookupPatientsKnownAllergies = new Dictionary<string, Boolean>();
+        ////  Bundle results = fhirClient.WholeSystemSearch(new string[] { @"reference=patient/6116" });
+        //WebRequest webRequest = WebRequest.Create(fhirClient.);
+        //WebResponse webResp = webRequest.GetResponse();
+        //Search Bundle here
 
-            //Attempt to retrieve Allergy Intolerance codes of a patient from the remote FHIR server
-            var allergyResource = fhirClient.Read<Hl7.Fhir.Model.AllergyIntolerance>("AllergyIntolerance/" + patientID);
-            
-            return allergyResource.Substance.Coding.Count == 0 ? lookupPatientsKnownAllergies :
+
+        //Attempt to retrieve Allergy Intolerance codes of a patient from the remote FHIR server
+    //    var patientResource = fhirClient.Read<Hl7.Fhir.Model.Patient>("Patient/" + patientID);
+       // var allergyResource = patientResource..ResourceType<Hl7.Fhir.Model.AllergyIntolerance>;
+        var allergyResource = fhirClient.Read<Hl7.Fhir.Model.AllergyIntolerance>("AllergyIntolerance/" + patientID);
+      //  var allergyResource = fhirClient.Read<Hl7.Fhir.Model.AllergyIntolerance>("AllergyIntolerance/" + patientID); 
+        return allergyResource.Substance.Coding.Count == 0 ? lookupPatientsKnownAllergies :
                 allergyResource.Substance.Coding.ToDictionary(a => a.Code, a => true);
         }//end GetPatientsKnownAllergies
 
-    }
+    public Boolean CreateAllergyIntolerance(int patientID, string allergyIntoleranceCode)
+    {
+
+        //var createCode = fhirClient.Create<Hl7.Fhir.Model.AllergyIntolerance>();
+        //var allergyResource = fhirClient.Read<Hl7.Fhir.Model.AllergyIntolerance>("AllergyIntolerance/" + patientID);
+        //allergyResource.ca
+        //First let us fetch the known allergies of the patient.
+        //var returnedAllergies = new List<string>();
+        //var lookupPatientsKnownAllergies = GetPatientsKnownAllergies(patientID);
+        //if (lookupPatientsKnownAllergies == null)
+        //{
+        //    There are no records on the FHIR server of this patient having any allergies.
+        //    return false;
+        //}
+
+
+
+        return true;
+
+    }//end CreateAllergyIntolerance method
+
+}

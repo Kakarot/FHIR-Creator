@@ -35,10 +35,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.comboType = new System.Windows.Forms.ComboBox();
-            this.labelPatientID = new System.Windows.Forms.Label();
+            this.labelAllergyIntoleranceID = new System.Windows.Forms.Label();
             this.textBoxPatientID = new System.Windows.Forms.TextBox();
             this.labelAllergyIntoleranceCode = new System.Windows.Forms.Label();
             this.textBoxAllergyIntoleranceCode = new System.Windows.Forms.TextBox();
+            this.buttonPatient = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -116,14 +117,15 @@
             this.comboType.Text = "Allergy Intolerance";
             this.comboType.SelectedIndexChanged += new System.EventHandler(this.comboType_SelectedIndexChanged);
             // 
-            // labelPatientID
+            // labelAllergyIntoleranceID
             // 
-            this.labelPatientID.AutoSize = true;
-            this.labelPatientID.Location = new System.Drawing.Point(105, 212);
-            this.labelPatientID.Name = "labelPatientID";
-            this.labelPatientID.Size = new System.Drawing.Size(54, 13);
-            this.labelPatientID.TabIndex = 7;
-            this.labelPatientID.Text = "Patient ID";
+            this.labelAllergyIntoleranceID.AutoSize = true;
+            this.labelAllergyIntoleranceID.Location = new System.Drawing.Point(81, 212);
+            this.labelAllergyIntoleranceID.Name = "labelAllergyIntoleranceID";
+            this.labelAllergyIntoleranceID.Size = new System.Drawing.Size(108, 13);
+            this.labelAllergyIntoleranceID.TabIndex = 7;
+            this.labelAllergyIntoleranceID.Text = "Allergy Intolerance ID";
+            this.labelAllergyIntoleranceID.Click += new System.EventHandler(this.labelPatientID_Click);
             // 
             // textBoxPatientID
             // 
@@ -152,15 +154,26 @@
             this.textBoxAllergyIntoleranceCode.TabIndex = 10;
             this.textBoxAllergyIntoleranceCode.Visible = false;
             // 
+            // buttonPatient
+            // 
+            this.buttonPatient.Location = new System.Drawing.Point(12, 5);
+            this.buttonPatient.Name = "buttonPatient";
+            this.buttonPatient.Size = new System.Drawing.Size(75, 23);
+            this.buttonPatient.TabIndex = 11;
+            this.buttonPatient.Text = "Patient";
+            this.buttonPatient.UseVisualStyleBackColor = true;
+            this.buttonPatient.Click += new System.EventHandler(this.buttonPatient_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 452);
+            this.Controls.Add(this.buttonPatient);
             this.Controls.Add(this.textBoxAllergyIntoleranceCode);
             this.Controls.Add(this.labelAllergyIntoleranceCode);
             this.Controls.Add(this.textBoxPatientID);
-            this.Controls.Add(this.labelPatientID);
+            this.Controls.Add(this.labelAllergyIntoleranceID);
             this.Controls.Add(this.comboType);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
@@ -169,7 +182,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "FHIR Creator";
+            this.Text = "Allergy Intolerance";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,10 +197,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboType;
-        private System.Windows.Forms.Label labelPatientID;
+        private System.Windows.Forms.Label labelAllergyIntoleranceID;
         private System.Windows.Forms.TextBox textBoxPatientID;
         private System.Windows.Forms.Label labelAllergyIntoleranceCode;
         private System.Windows.Forms.TextBox textBoxAllergyIntoleranceCode;
+        private System.Windows.Forms.Button buttonPatient;
     }
 }
 
