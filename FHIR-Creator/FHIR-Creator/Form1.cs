@@ -26,5 +26,16 @@ namespace FHIR_Creator
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            switch (comboType.Text)
+            {
+                case "Patient": break;
+                case "Allergy Intolerance": ReadFhir readFhir = new ReadFhir(comboCRUD.Text, textboxFhirServer.Text);
+                    MessageBox.Show(readFhir.PerformAction());
+                    break;
+            }
+        }
     }
 }
