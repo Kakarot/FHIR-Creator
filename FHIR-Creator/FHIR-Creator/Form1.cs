@@ -32,7 +32,8 @@ namespace FHIR_Creator
             switch (comboType.Text)
             {
                 case "Patient": break;
-                case "Allergy Intolerance": ReadFhir readFhir = new ReadFhir(comboCRUD.Text, textboxFhirServer.Text);
+                case "Allergy Intolerance": ReadFhir readFhir = new ReadFhir(
+                    comboCRUD.Text, textboxFhirServer.Text, Int32.Parse(textBoxPatientID.Text));
                     MessageBox.Show(readFhir.PerformAction());
                     break;
             }
