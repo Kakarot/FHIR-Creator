@@ -37,6 +37,8 @@
             this.comboType = new System.Windows.Forms.ComboBox();
             this.labelPatientID = new System.Windows.Forms.Label();
             this.textBoxPatientID = new System.Windows.Forms.TextBox();
+            this.labelAllergyIntoleranceCode = new System.Windows.Forms.Label();
+            this.textBoxAllergyIntoleranceCode = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -84,7 +86,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(88, 275);
+            this.button1.Location = new System.Drawing.Point(84, 393);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 23);
             this.button1.TabIndex = 4;
@@ -112,6 +114,7 @@
             this.comboType.Size = new System.Drawing.Size(121, 21);
             this.comboType.TabIndex = 6;
             this.comboType.Text = "Allergy Intolerance";
+            this.comboType.SelectedIndexChanged += new System.EventHandler(this.comboType_SelectedIndexChanged);
             // 
             // labelPatientID
             // 
@@ -131,11 +134,31 @@
             this.textBoxPatientID.Text = "6140";
             this.textBoxPatientID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // labelAllergyIntoleranceCode
+            // 
+            this.labelAllergyIntoleranceCode.AutoSize = true;
+            this.labelAllergyIntoleranceCode.Location = new System.Drawing.Point(75, 293);
+            this.labelAllergyIntoleranceCode.Name = "labelAllergyIntoleranceCode";
+            this.labelAllergyIntoleranceCode.Size = new System.Drawing.Size(122, 13);
+            this.labelAllergyIntoleranceCode.TabIndex = 9;
+            this.labelAllergyIntoleranceCode.Text = "Allergy Intolerance Code";
+            this.labelAllergyIntoleranceCode.Visible = false;
+            // 
+            // textBoxAllergyIntoleranceCode
+            // 
+            this.textBoxAllergyIntoleranceCode.Location = new System.Drawing.Point(84, 321);
+            this.textBoxAllergyIntoleranceCode.Name = "textBoxAllergyIntoleranceCode";
+            this.textBoxAllergyIntoleranceCode.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAllergyIntoleranceCode.TabIndex = 10;
+            this.textBoxAllergyIntoleranceCode.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 310);
+            this.ClientSize = new System.Drawing.Size(284, 452);
+            this.Controls.Add(this.textBoxAllergyIntoleranceCode);
+            this.Controls.Add(this.labelAllergyIntoleranceCode);
             this.Controls.Add(this.textBoxPatientID);
             this.Controls.Add(this.labelPatientID);
             this.Controls.Add(this.comboType);
@@ -163,6 +186,8 @@
         private System.Windows.Forms.ComboBox comboType;
         private System.Windows.Forms.Label labelPatientID;
         private System.Windows.Forms.TextBox textBoxPatientID;
+        private System.Windows.Forms.Label labelAllergyIntoleranceCode;
+        private System.Windows.Forms.TextBox textBoxAllergyIntoleranceCode;
     }
 }
 
