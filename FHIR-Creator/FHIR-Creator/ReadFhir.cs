@@ -20,11 +20,9 @@ namespace FHIR_Creator
             this.patientID = patientID;
         }
 
-        public string PerformAction()
+        public string PerformActionGET()
         {
-            var result = "";
-            if (crud == "Read")
-            {
+            var result = "";           
                 var allergyIntolerance = new AllergyIntolerance(url.Trim());
                 // var allergyIntolerance = new AllergyIntolerance("http://fhirtest.uhn.ca/baseDstu2/");
                 //var patientID = 6140; //Patient ID for FHIR Server
@@ -37,7 +35,7 @@ namespace FHIR_Creator
                 {
                     result += m;
                 }  
-            }
+            
             return result;
         }
     }

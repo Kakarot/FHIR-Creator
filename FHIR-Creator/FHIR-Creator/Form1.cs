@@ -19,7 +19,7 @@ namespace FHIR_Creator
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboCRUD.Text == "Create" && comboType.Text == "Allergy Intolerance")
+            if (comboCRUD.Text == "POST")
             {
                 textBoxAllergyIntoleranceCode.Visible=true;
                 labelAllergyIntoleranceCode.Visible=true;
@@ -30,23 +30,18 @@ namespace FHIR_Creator
                 labelAllergyIntoleranceCode.Visible = false;
             }
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                switch (comboType.Text)
+                switch (comboCRUD.Text)
                 {
-                    case "Patient": break;
-                    case "Allergy Intolerance":
+                    case "POST": break;
+                    case "GET":
                         ReadFhir readFhir = new ReadFhir(
 comboCRUD.Text, textboxFhirServer.Text, Int32.Parse(textBoxPatientID.Text));
-                        MessageBox.Show(readFhir.PerformAction());
+                        MessageBox.Show(readFhir.PerformActionGET(), "Allergy Intolerance Coding");
                         break;
                 }
             }//end try
@@ -58,7 +53,7 @@ comboCRUD.Text, textboxFhirServer.Text, Int32.Parse(textBoxPatientID.Text));
 
         private void comboType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboCRUD.Text == "Create" && comboType.Text == "Allergy Intolerance")
+            if (comboCRUD.Text == "POST")
             {
                 textBoxAllergyIntoleranceCode.Visible = true;
                 labelAllergyIntoleranceCode.Visible = true;
