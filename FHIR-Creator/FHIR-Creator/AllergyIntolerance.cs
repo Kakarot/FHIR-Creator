@@ -149,6 +149,4 @@ public class AllergyIntolerance
         return returnID;        
 
     }//end CreateAllergyIntolerance method
-
-
 }
