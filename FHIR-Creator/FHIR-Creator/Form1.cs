@@ -21,13 +21,12 @@ namespace FHIR_Creator
         {
             if (comboCRUD.Text == "POST")
             {
-                textBoxAllergyIntoleranceCode.Visible=true;
-                labelAllergyIntoleranceCode.Visible=true;
+                labelAllergyIntoleranceID.Text = "Allergy Intolerance Code";
+                textBoxAllergyIntoleranceID.Text = String.Empty;
             }
             else
             {
-                textBoxAllergyIntoleranceCode.Visible = false;
-                labelAllergyIntoleranceCode.Visible = false;
+                labelAllergyIntoleranceID.Text = "Allery Intolerance ID";
             }
         }
        
@@ -37,10 +36,14 @@ namespace FHIR_Creator
             {
                 switch (comboCRUD.Text)
                 {
-                    case "POST": break;
+                    case "POST":
+                        AllergyIntoleranceFhir postFhir = new AllergyIntoleranceFhir(
+comboCRUD.Text, textboxFhirServer.Text, 0);
+                        MessageBox.Show(postFhir.PerformActionPOST(textBoxAllergyIntoleranceID.Text), "Resource ID");
+                        break;
                     case "GET":
-                        ReadFhir readFhir = new ReadFhir(
-comboCRUD.Text, textboxFhirServer.Text, Int32.Parse(textBoxPatientID.Text));
+                        AllergyIntoleranceFhir readFhir = new AllergyIntoleranceFhir(
+comboCRUD.Text, textboxFhirServer.Text, Int32.Parse(textBoxAllergyIntoleranceID.Text));
                         MessageBox.Show(readFhir.PerformActionGET(), "Allergy Intolerance Coding");
                         break;
                 }
@@ -49,26 +52,9 @@ comboCRUD.Text, textboxFhirServer.Text, Int32.Parse(textBoxPatientID.Text));
             {
                 MessageBox.Show("Sorry something went horribly wrong. Here is the error: "+ex.Message);
             }
-        }
+        }     
 
-        private void comboType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboCRUD.Text == "POST")
-            {
-                textBoxAllergyIntoleranceCode.Visible = true;
-                labelAllergyIntoleranceCode.Visible = true;
-            }
-            else
-            {
-                textBoxAllergyIntoleranceCode.Visible = false;
-                labelAllergyIntoleranceCode.Visible = false;
-            }
-        }
-
-        private void labelPatientID_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void buttonPatient_Click(object sender, EventArgs e)
         {

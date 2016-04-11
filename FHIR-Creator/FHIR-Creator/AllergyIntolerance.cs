@@ -130,25 +130,22 @@ public class AllergyIntolerance
                 allergyResource.Substance.Coding.ToDictionary(a => a.Code, a => true);
         }//end GetPatientsKnownAllergies
 
-    public Boolean CreateAllergyIntolerance(int patientID, string allergyIntoleranceCode)
+    public string CreateAllergyIntolerance(string allergyIntoleranceCode)
     {
 
-        //var createCode = fhirClient.Create<Hl7.Fhir.Model.AllergyIntolerance>();
-        //var allergyResource = fhirClient.Read<Hl7.Fhir.Model.AllergyIntolerance>("AllergyIntolerance/" + patientID);
-        //allergyResource.ca
-        //First let us fetch the known allergies of the patient.
-        //var returnedAllergies = new List<string>();
-        //var lookupPatientsKnownAllergies = GetPatientsKnownAllergies(patientID);
-        //if (lookupPatientsKnownAllergies == null)
-        //{
-        //    There are no records on the FHIR server of this patient having any allergies.
-        //    return false;
-        //}
+        //Create an empty patient resource and then assign attributes
+        Hl7.Fhir.Model.AllergyIntolerance fhirAllergyIntolerance = new Hl7.Fhir.Model.AllergyIntolerance();
+    //    fhirAllergyIntolerance.Substance.Coding.Add(new Coding("something", allergyIntoleranceCode));
 
+        //Push the local patient resource to the FHIR Server and expect a newly assigned ID
+        var patientResource = fhirClient.Create<Hl7.Fhir.Model.AllergyIntolerance>(fhirAllergyIntolerance);
 
+        String returnID = "The newly created Allergy Intolerance ID is: ";
 
-        return true;
+        returnID += patientResource.Id;
+        return returnID;        
 
     }//end CreateAllergyIntolerance method
+
 
 }

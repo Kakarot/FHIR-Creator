@@ -7,13 +7,13 @@ using System.Windows.Forms;
 
 namespace FHIR_Creator
 {
-    public class ReadFhir
+    public class AllergyIntoleranceFhir
     {
         string crud, url;
         int patientID;
               
 
-       public ReadFhir(string crud, string url, int patientID)
+       public AllergyIntoleranceFhir(string crud, string url, int patientID)
         {
             this.crud = crud;
             this.url = url;
@@ -36,6 +36,17 @@ namespace FHIR_Creator
                     result += m;
                 }  
             
+            return result;
+        }
+
+        public string PerformActionPOST(string code)
+        {
+            var result = "";
+
+            var allergyIntolerance = new AllergyIntolerance(url.Trim());
+          
+            result = allergyIntolerance.CreateAllergyIntolerance(code);
+
             return result;
         }
     }
