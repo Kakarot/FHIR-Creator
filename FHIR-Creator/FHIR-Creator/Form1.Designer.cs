@@ -36,6 +36,8 @@
             this.labelAllergyIntoleranceID = new System.Windows.Forms.Label();
             this.textBoxAllergyIntoleranceID = new System.Windows.Forms.TextBox();
             this.buttonPatient = new System.Windows.Forms.Button();
+            this.labelBindPatientID = new System.Windows.Forms.Label();
+            this.textBoxBindPatientID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -81,7 +83,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(85, 200);
+            this.button1.Location = new System.Drawing.Point(85, 249);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 23);
             this.button1.TabIndex = 4;
@@ -117,11 +119,32 @@
             this.buttonPatient.UseVisualStyleBackColor = true;
             this.buttonPatient.Click += new System.EventHandler(this.buttonPatient_Click);
             // 
+            // labelBindPatientID
+            // 
+            this.labelBindPatientID.AutoSize = true;
+            this.labelBindPatientID.Location = new System.Drawing.Point(86, 203);
+            this.labelBindPatientID.Name = "labelBindPatientID";
+            this.labelBindPatientID.Size = new System.Drawing.Size(104, 13);
+            this.labelBindPatientID.TabIndex = 12;
+            this.labelBindPatientID.Text = "Patient ID to bind to:";
+            this.labelBindPatientID.Visible = false;
+            // 
+            // textBoxBindPatientID
+            // 
+            this.textBoxBindPatientID.Location = new System.Drawing.Point(89, 220);
+            this.textBoxBindPatientID.Name = "textBoxBindPatientID";
+            this.textBoxBindPatientID.Size = new System.Drawing.Size(100, 20);
+            this.textBoxBindPatientID.TabIndex = 13;
+            this.textBoxBindPatientID.Text = "21613";
+            this.textBoxBindPatientID.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 234);
+            this.ClientSize = new System.Drawing.Size(284, 316);
+            this.Controls.Add(this.textBoxBindPatientID);
+            this.Controls.Add(this.labelBindPatientID);
             this.Controls.Add(this.buttonPatient);
             this.Controls.Add(this.textBoxAllergyIntoleranceID);
             this.Controls.Add(this.labelAllergyIntoleranceID);
@@ -147,6 +170,8 @@
         private System.Windows.Forms.Label labelAllergyIntoleranceID;
         private System.Windows.Forms.TextBox textBoxAllergyIntoleranceID;
         private System.Windows.Forms.Button buttonPatient;
+        private System.Windows.Forms.Label labelBindPatientID;
+        private System.Windows.Forms.TextBox textBoxBindPatientID;
     }
 }
 

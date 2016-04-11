@@ -39,13 +39,13 @@ namespace FHIR_Creator
             return result;
         }
 
-        public string PerformActionPOST(string code)
+        public string PerformActionPOST(string allergyIntoleranceCode, string patientID)
         {
             var result = "";
 
             var allergyIntolerance = new AllergyIntolerance(url.Trim());
           
-            result = allergyIntolerance.CreateAllergyIntolerance(code);
+            result = allergyIntolerance.CreateAllergyIntolerance(patientID, allergyIntoleranceCode);
 
             return result;
         }

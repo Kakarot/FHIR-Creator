@@ -23,15 +23,21 @@ namespace FHIR_Creator
             {
                 labelAllergyIntoleranceID.Text = "Allergy Intolerance Code";
                 textBoxAllergyIntoleranceID.Text = String.Empty;
+                textBoxBindPatientID.Visible = true;
+                labelBindPatientID.Visible = true;
             }
             else if(comboCRUD.Text == "SEARCH")
             {
                 labelAllergyIntoleranceID.Text = "Patient ID to Search on:";
                 textBoxAllergyIntoleranceID.Text = String.Empty;
+                textBoxBindPatientID.Visible = false;
+                labelBindPatientID.Visible = false;
             }
             else
             {
                 labelAllergyIntoleranceID.Text = "Allery Intolerance ID";
+                textBoxBindPatientID.Visible = false;
+                labelBindPatientID.Visible = false;
             }
         }
        
@@ -44,7 +50,7 @@ namespace FHIR_Creator
                     case "POST":
                         AllergyIntoleranceFhir postFhir = new AllergyIntoleranceFhir(
 comboCRUD.Text, textboxFhirServer.Text, 0);
-                        MessageBox.Show(postFhir.PerformActionPOST(textBoxAllergyIntoleranceID.Text), "Resource ID");
+                        MessageBox.Show(postFhir.PerformActionPOST(textBoxAllergyIntoleranceID.Text, textBoxBindPatientID.Text), "Resource ID");
                         break;
                     case "GET":
                         AllergyIntoleranceFhir readFhir = new AllergyIntoleranceFhir(

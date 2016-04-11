@@ -130,7 +130,7 @@ public class AllergyIntolerance
                 allergyResource.Substance.Coding.ToDictionary(a => a.Code, a => true);
         }//end GetPatientsKnownAllergies
 
-    public string CreateAllergyIntolerance(string allergyIntoleranceCode)
+    public string CreateAllergyIntolerance(string patientID, string allergyIntoleranceCode)
     {
        
         //Create an empty Allergy Intolerance resource and then assign attributes
@@ -139,6 +139,10 @@ public class AllergyIntolerance
         codingList.Code = allergyIntoleranceCode;
         fhirAllergyIntolerance.Substance = new CodeableConcept();
         fhirAllergyIntolerance.Substance.Coding.Add(codingList);
+
+       // Hl7.Fhir.Model.Patient fhirPatient = fhirClient.Read<Hl7.Fhir.Model.Patient>("Patient/21613");
+        fhirAllergyIntolerance.Patient = new ResourceReference();
+        fhirAllergyIntolerance.Patient.Reference = "Patient/"+patientID;
 
         //Push the local patient resource to the FHIR Server and expect a newly assigned ID
         var allergyResource = fhirClient.Create<Hl7.Fhir.Model.AllergyIntolerance>(fhirAllergyIntolerance);
@@ -172,7 +176,7 @@ public class AllergyIntolerance
         string allergyIDs = String.Empty;
         foreach(var entry in listOfentries)
         {
-            allergyIDs += entry.Resource.Id;
+            allergyIDs += entry.Resource.Id+"\n";
         }
         return allergyIDs;
      

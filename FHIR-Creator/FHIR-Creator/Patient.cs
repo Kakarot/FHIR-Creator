@@ -28,7 +28,7 @@ namespace FHIR_Creator
             
             foreach(var p in patientResource.Name)
             {
-                var nameCollection = p.Given.ToList();
+                var nameCollection = p.Family.ToList();
                 foreach(var nc in nameCollection)
                 {
                     returnName += nc;
