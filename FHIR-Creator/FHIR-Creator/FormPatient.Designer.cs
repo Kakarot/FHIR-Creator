@@ -67,6 +67,7 @@
             this.comboBoxCRUD.Size = new System.Drawing.Size(72, 21);
             this.comboBoxCRUD.TabIndex = 2;
             this.comboBoxCRUD.Text = "GET";
+            this.comboBoxCRUD.SelectedIndexChanged += new System.EventHandler(this.comboBoxCRUD_SelectedIndexChanged);
             // 
             // labelCRUD
             // 

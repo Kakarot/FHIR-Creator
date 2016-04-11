@@ -29,13 +29,25 @@ namespace FHIR_Creator
                         break;
                     case "POST":
                         PatientFhir patientFhirPost = new PatientFhir(textBoxFhirServer.Text, textBoxPatientID.Text);
-                        MessageBox.Show(patientFhirPost.PerformActionPOST("Brolly"));
+                        MessageBox.Show(patientFhirPost.PerformActionPOST(textBoxPatientID.Text));
                         break;
                 }
             }//end try
             catch (Exception ex)
             {
                 MessageBox.Show("Sorry something went horribly wrong. Here is the error: " + ex.Message);
+            }
+        }
+
+        private void comboBoxCRUD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxCRUD.Text == "POST")
+            {
+                labelPatientID.Text = "Patient's Family Name";
+            }
+            else
+            {
+                labelPatientID.Text = "Patient ID";
             }
         }
     }

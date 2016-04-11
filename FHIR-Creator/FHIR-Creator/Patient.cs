@@ -37,11 +37,13 @@ namespace FHIR_Creator
             return returnName;
         }
 
-        public string PostPatient(string patientID)
+        public string PostPatient(string name)
         {
-
+            //Create an empty patient resource and then assign attributes
             Hl7.Fhir.Model.Patient fhirPatient = new Hl7.Fhir.Model.Patient();
+            fhirPatient.Name.Add(new Hl7.Fhir.Model.HumanName().AndFamily(name));
 
+            //Push the local patient resource to the FHIR Server and expect a newly assigned ID
             var patientResource = fhirClient.Create<Hl7.Fhir.Model.Patient>(fhirPatient);
 
             String returnID = "The newly created Patient ID is: ";
