@@ -132,17 +132,20 @@ public class AllergyIntolerance
 
     public string CreateAllergyIntolerance(string allergyIntoleranceCode)
     {
-
-        //Create an empty patient resource and then assign attributes
-        Hl7.Fhir.Model.AllergyIntolerance fhirAllergyIntolerance = new Hl7.Fhir.Model.AllergyIntolerance();
-    //    fhirAllergyIntolerance.Substance.Coding.Add(new Coding("something", allergyIntoleranceCode));
+       
+        //Create an empty Allergy Intolerance resource and then assign attributes
+        Hl7.Fhir.Model.AllergyIntolerance fhirAllergyIntolerance = new Hl7.Fhir.Model.AllergyIntolerance();        
+        Coding codingList = new Coding();
+        codingList.Code = allergyIntoleranceCode;
+        fhirAllergyIntolerance.Substance = new CodeableConcept();
+        fhirAllergyIntolerance.Substance.Coding.Add(codingList);
 
         //Push the local patient resource to the FHIR Server and expect a newly assigned ID
-        var patientResource = fhirClient.Create<Hl7.Fhir.Model.AllergyIntolerance>(fhirAllergyIntolerance);
+        var allergyResource = fhirClient.Create<Hl7.Fhir.Model.AllergyIntolerance>(fhirAllergyIntolerance);
 
         String returnID = "The newly created Allergy Intolerance ID is: ";
 
-        returnID += patientResource.Id;
+        returnID += allergyResource.Id;
         return returnID;        
 
     }//end CreateAllergyIntolerance method
