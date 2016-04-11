@@ -62,11 +62,10 @@
             this.comboCRUD.Items.AddRange(new object[] {
             "POST",
             "GET",
-            "PUT",
-            "DELETE"});
-            this.comboCRUD.Location = new System.Drawing.Point(108, 97);
+            "SEARCH"});
+            this.comboCRUD.Location = new System.Drawing.Point(98, 97);
             this.comboCRUD.Name = "comboCRUD";
-            this.comboCRUD.Size = new System.Drawing.Size(62, 21);
+            this.comboCRUD.Size = new System.Drawing.Size(73, 21);
             this.comboCRUD.TabIndex = 2;
             this.comboCRUD.Text = "GET";
             this.comboCRUD.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);

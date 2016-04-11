@@ -59,9 +59,7 @@
             this.comboBoxCRUD.FormattingEnabled = true;
             this.comboBoxCRUD.Items.AddRange(new object[] {
             "POST",
-            "GET",
-            "PUT",
-            "DELETE"});
+            "GET"});
             this.comboBoxCRUD.Location = new System.Drawing.Point(95, 111);
             this.comboBoxCRUD.Name = "comboBoxCRUD";
             this.comboBoxCRUD.Size = new System.Drawing.Size(72, 21);

@@ -149,4 +149,32 @@ public class AllergyIntolerance
         return returnID;        
 
     }//end CreateAllergyIntolerance method
+
+    public string SearchKnownAllergiesOnPatientID(string patientID)
+    {
+        //First we need to set up the Search Param Object
+        SearchParams mySearch = new SearchParams();
+
+        //Create a tuple containing search parameters for SearchParam object
+        // equivalent of "AllergyIntolerance?patient=6116";
+        Tuple<string, string> mySearchTuple = new Tuple<string, string>("patient", patientID);
+        mySearch.Parameters.Add(mySearchTuple);
+      
+        //Query the fhir server with search parameters, we will retrieve a bundle
+        var searchResultResponse = fhirClient.Search<Hl7.Fhir.Model.AllergyIntolerance>(mySearch);
+       
+        //There is an array of "entries" that can return. Get a list of all the entries.
+        var listOfentries = searchResultResponse.Entry;
+
+        if (listOfentries.Count == 0)
+            return "No Allergy Intolerance entries found on the FHIR server for: "+patientID;
+
+        string allergyIDs = String.Empty;
+        foreach(var entry in listOfentries)
+        {
+            allergyIDs += entry.Resource.Id;
+        }
+        return allergyIDs;
+     
+    }//end SearchKnownAllergiesOnPatientID
 }

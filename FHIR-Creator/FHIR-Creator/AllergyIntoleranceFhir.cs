@@ -49,5 +49,24 @@ namespace FHIR_Creator
 
             return result;
         }
+
+        public string PerformActionSEARCH(string patientID)
+        {
+            var result = "";
+            var allergyIntolerance = new AllergyIntolerance(url.Trim());
+            // var allergyIntolerance = new AllergyIntolerance("http://fhirtest.uhn.ca/baseDstu2/");
+            //var patientID = 6140; //Patient ID for FHIR Server
+
+            // var medications = new List<string>() { "hydrocodone", "aspirin" }; //medications the patient is taking
+            //var response = allergyIntolerance.GetListOfMedicationAllergies(patientID, medications).ToList();
+            var response = allergyIntolerance.SearchKnownAllergiesOnPatientID(patientID);
+            //var medicationCodes = response.Keys;
+            //foreach (string m in medicationCodes)
+            //{
+            //    result += m;
+            //}
+            result = response;
+            return result;
+        }
     }
 }

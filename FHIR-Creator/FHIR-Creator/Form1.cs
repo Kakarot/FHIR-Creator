@@ -24,6 +24,11 @@ namespace FHIR_Creator
                 labelAllergyIntoleranceID.Text = "Allergy Intolerance Code";
                 textBoxAllergyIntoleranceID.Text = String.Empty;
             }
+            else if(comboCRUD.Text == "SEARCH")
+            {
+                labelAllergyIntoleranceID.Text = "Patient ID to Search on:";
+                textBoxAllergyIntoleranceID.Text = String.Empty;
+            }
             else
             {
                 labelAllergyIntoleranceID.Text = "Allery Intolerance ID";
@@ -45,6 +50,11 @@ comboCRUD.Text, textboxFhirServer.Text, 0);
                         AllergyIntoleranceFhir readFhir = new AllergyIntoleranceFhir(
 comboCRUD.Text, textboxFhirServer.Text, Int32.Parse(textBoxAllergyIntoleranceID.Text));
                         MessageBox.Show(readFhir.PerformActionGET(), "Allergy Intolerance Coding");
+                        break;
+                    case "SEARCH":
+                        AllergyIntoleranceFhir searchFhir = new AllergyIntoleranceFhir(
+comboCRUD.Text, textboxFhirServer.Text, Int32.Parse(textBoxAllergyIntoleranceID.Text));
+                        MessageBox.Show(searchFhir.PerformActionSEARCH(textBoxAllergyIntoleranceID.Text), "Allergy Intolerance Resource ID");
                         break;
                 }
             }//end try
