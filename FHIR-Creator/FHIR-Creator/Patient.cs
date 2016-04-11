@@ -36,5 +36,18 @@ namespace FHIR_Creator
             }
             return returnName;
         }
+
+        public string PostPatient(string patientID)
+        {
+
+            Hl7.Fhir.Model.Patient fhirPatient = new Hl7.Fhir.Model.Patient();
+
+            var patientResource = fhirClient.Create<Hl7.Fhir.Model.Patient>(fhirPatient);
+
+            String returnID = "The newly created Patient ID is: ";
+
+            returnID += patientResource.Id;
+            return returnID;
+        }
     }
 }

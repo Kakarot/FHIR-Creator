@@ -24,8 +24,12 @@ namespace FHIR_Creator
                 switch (comboBoxCRUD.Text)
                 {
                     case "GET": 
-                        PatientFhir readFhir = new PatientFhir(textBoxFhirServer.Text, textBoxPatientID.Text);
-                        MessageBox.Show(readFhir.PerformActionGET());
+                        PatientFhir patientFhirGet = new PatientFhir(textBoxFhirServer.Text, textBoxPatientID.Text);
+                        MessageBox.Show(patientFhirGet.PerformActionGET());
+                        break;
+                    case "POST":
+                        PatientFhir patientFhirPost = new PatientFhir(textBoxFhirServer.Text, textBoxPatientID.Text);
+                        MessageBox.Show(patientFhirPost.PerformActionPOST("Brolly"));
                         break;
                 }
             }//end try
