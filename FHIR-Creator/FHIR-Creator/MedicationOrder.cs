@@ -22,21 +22,19 @@ namespace FHIR_Creator
 
         }
 
-        //public string GetPatientName(string patientID)
-        //{
-        //    var patientResource = fhirClient.Read<Hl7.Fhir.Model.Patient>("Patient/" + patientID);
-        //    string returnName=String.Empty;
+        public string GetMedicationOrder(string medicationOrderID)
+        {
+            var medicationOrderResource = fhirClient.Read<Hl7.Fhir.Model.MedicationOrder>("MedicationOrder/" + medicationOrderID);
+            string returnName = String.Empty;
+           // medicationOrderResource.Medication = new CodeableConcept();
+            //var test = medicationOrderResource.Medication.GetExtensionValue<Coding>("medicationCodeableConcept");
             
-        //    foreach(var p in patientResource.Name)
-        //    {
-        //        var nameCollection = p.Family.ToList();
-        //        foreach(var nc in nameCollection)
-        //        {
-        //            returnName += nc;
-        //        }
-        //    }
-        //    return returnName;
-        //}
+            
+            //The difficulty here is that this is considered a custom element and there is no model for it.
+            //So just return the patient the resource is bound to
+            return medicationOrderResource.Patient.Reference;
+            
+        }
 
         public string PostMedicationOrder(string patientID, string medicationOrder)
         {
@@ -48,9 +46,12 @@ namespace FHIR_Creator
             Code code = new Code(medicationOrder);
             Coding codingList = new Coding();
             codingList.Code = medicationOrder;
-            fhirMedicationOrder.Medication = codingList;
+            fhirMedicationOrder.Medication = new CodeableConcept("ICD-10", "hydrocodone");
+            
+            
+           // fhirMedicationOrder.Medication = codingList;
             //  medication.Code.Coding.Add(new Hl7.Fhir.Model.Coding("hydrocodone"));
-            fhirMedicationOrder.Medication = codingList;
+          //  fhirMedicationOrder.Medication = codingList;
             //.Name.Add(new Hl7.Fhir.Model.HumanName().AndFamily(name));
 
             //Now associate Medication Order to a Patient

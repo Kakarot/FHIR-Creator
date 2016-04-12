@@ -42,11 +42,13 @@ namespace FHIR_Creator
             {
                 switch (comboBoxCRUD.Text)
                 {
-                    case "GET":                       
+                    case "GET":
+                        MedicationOrderFhir medicationOrderFhirGet = new MedicationOrderFhir(textBoxFhirServer.Text, null);
+                        MessageBox.Show(medicationOrderFhirGet.PerformActionGET(textBoxMedicationOrderID.Text));
                         break;
                     case "POST":
-                        MedicationOrderFhir patientFhirPost = new MedicationOrderFhir(textBoxFhirServer.Text, null);
-                        MessageBox.Show(patientFhirPost.PerformActionPOST(textBoxBindPatientID.Text, textBoxMedicationOrderID.Text));
+                        MedicationOrderFhir medicationOrderFhirPost = new MedicationOrderFhir(textBoxFhirServer.Text, null);
+                        MessageBox.Show(medicationOrderFhirPost.PerformActionPOST(textBoxBindPatientID.Text, textBoxMedicationOrderID.Text));
                         break;
                 }
             }//end try

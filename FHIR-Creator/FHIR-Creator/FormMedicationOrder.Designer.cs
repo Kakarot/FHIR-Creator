@@ -55,7 +55,7 @@
             this.textBoxMedicationOrderID.Name = "textBoxMedicationOrderID";
             this.textBoxMedicationOrderID.Size = new System.Drawing.Size(100, 20);
             this.textBoxMedicationOrderID.TabIndex = 12;
-            this.textBoxMedicationOrderID.Text = "6116";
+            this.textBoxMedicationOrderID.Text = "21633";
             this.textBoxMedicationOrderID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelMedicationOrderID
