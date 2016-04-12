@@ -38,6 +38,7 @@
             this.buttonPatient = new System.Windows.Forms.Button();
             this.labelBindPatientID = new System.Windows.Forms.Label();
             this.textBoxBindPatientID = new System.Windows.Forms.TextBox();
+            this.buttonMedicationOrder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -138,11 +139,22 @@
             this.textBoxBindPatientID.Text = "21613";
             this.textBoxBindPatientID.Visible = false;
             // 
+            // buttonMedicationOrder
+            // 
+            this.buttonMedicationOrder.Location = new System.Drawing.Point(188, 5);
+            this.buttonMedicationOrder.Name = "buttonMedicationOrder";
+            this.buttonMedicationOrder.Size = new System.Drawing.Size(75, 23);
+            this.buttonMedicationOrder.TabIndex = 14;
+            this.buttonMedicationOrder.Text = "Medication Order";
+            this.buttonMedicationOrder.UseVisualStyleBackColor = true;
+            this.buttonMedicationOrder.Click += new System.EventHandler(this.buttonMedicationOrder_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 316);
+            this.Controls.Add(this.buttonMedicationOrder);
             this.Controls.Add(this.textBoxBindPatientID);
             this.Controls.Add(this.labelBindPatientID);
             this.Controls.Add(this.buttonPatient);
@@ -172,6 +184,7 @@
         private System.Windows.Forms.Button buttonPatient;
         private System.Windows.Forms.Label labelBindPatientID;
         private System.Windows.Forms.TextBox textBoxBindPatientID;
+        private System.Windows.Forms.Button buttonMedicationOrder;
     }
 }
 

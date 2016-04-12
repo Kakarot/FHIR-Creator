@@ -50,5 +50,30 @@ namespace FHIR_Creator
                 labelPatientID.Text = "Patient ID";
             }
         }
+
+        private void textBoxPatientID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelFhirServer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxFhirServer_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelPatientID_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelCRUD_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -62,12 +62,20 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMedicationOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMedicationOrder.Designer.cs">
+      <DependentUpon>FormMedicationOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPatient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPatient.Designer.cs">
       <DependentUpon>FormPatient.cs</DependentUpon>
     </Compile>
+    <Compile Include="MedicationOrderFhir.cs" />
+    <Compile Include="MedicationOrder.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,6 +83,9 @@
     <Compile Include="AllergyIntoleranceFhir.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMedicationOrder.resx">
+      <DependentUpon>FormMedicationOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPatient.resx">
       <DependentUpon>FormPatient.cs</DependentUpon>

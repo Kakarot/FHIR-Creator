@@ -44,6 +44,7 @@
             this.textBoxFhirServer.Size = new System.Drawing.Size(169, 20);
             this.textBoxFhirServer.TabIndex = 0;
             this.textBoxFhirServer.Text = "http://fhirtest.uhn.ca/baseDstu2/";
+            this.textBoxFhirServer.TextChanged += new System.EventHandler(this.textBoxFhirServer_TextChanged);
             // 
             // labelFhirServer
             // 
@@ -53,6 +54,7 @@
             this.labelFhirServer.Size = new System.Drawing.Size(66, 13);
             this.labelFhirServer.TabIndex = 1;
             this.labelFhirServer.Text = "FHIR Server";
+            this.labelFhirServer.Click += new System.EventHandler(this.labelFhirServer_Click);
             // 
             // comboBoxCRUD
             // 
@@ -75,6 +77,7 @@
             this.labelCRUD.Size = new System.Drawing.Size(38, 13);
             this.labelCRUD.TabIndex = 3;
             this.labelCRUD.Text = "CRUD";
+            this.labelCRUD.Click += new System.EventHandler(this.labelCRUD_Click);
             // 
             // labelPatientID
             // 
@@ -84,6 +87,7 @@
             this.labelPatientID.Size = new System.Drawing.Size(54, 13);
             this.labelPatientID.TabIndex = 4;
             this.labelPatientID.Text = "Patient ID";
+            this.labelPatientID.Click += new System.EventHandler(this.labelPatientID_Click);
             // 
             // textBoxPatientID
             // 
@@ -93,6 +97,7 @@
             this.textBoxPatientID.TabIndex = 5;
             this.textBoxPatientID.Text = "6116";
             this.textBoxPatientID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxPatientID.TextChanged += new System.EventHandler(this.textBoxPatientID_TextChanged);
             // 
             // buttonPerformAction
             // 

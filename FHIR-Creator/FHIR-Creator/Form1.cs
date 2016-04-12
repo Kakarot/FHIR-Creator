@@ -77,5 +77,11 @@ comboCRUD.Text, textboxFhirServer.Text, Int32.Parse(textBoxAllergyIntoleranceID.
             FormPatient myFormPatient = new FormPatient();
             myFormPatient.ShowDialog();
         }
+
+        private void buttonMedicationOrder_Click(object sender, EventArgs e)
+        {
+            FormMedicationOrder myFormMedicationOrder = new FormMedicationOrder();
+            myFormMedicationOrder.ShowDialog();
+        }
     }
 }
