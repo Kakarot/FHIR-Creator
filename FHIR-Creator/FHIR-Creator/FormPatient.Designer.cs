@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPatient));
             this.textBoxFhirServer = new System.Windows.Forms.TextBox();
             this.labelFhirServer = new System.Windows.Forms.Label();
             this.comboBoxCRUD = new System.Windows.Forms.ComboBox();
@@ -121,6 +122,7 @@
             this.Controls.Add(this.comboBoxCRUD);
             this.Controls.Add(this.labelFhirServer);
             this.Controls.Add(this.textBoxFhirServer);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormPatient";
             this.Text = "Patient";
             this.ResumeLayout(false);
