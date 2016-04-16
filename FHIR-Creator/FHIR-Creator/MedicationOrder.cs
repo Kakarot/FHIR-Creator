@@ -52,6 +52,8 @@ namespace FHIR_Creator
             //Create an empty medication order resource and then assign attributes
             Hl7.Fhir.Model.MedicationOrder fhirMedicationOrder = new Hl7.Fhir.Model.MedicationOrder();
 
+            //There is no API for "Reference" in MedicationOrder model, unlike Patient model.
+            //You must initialize ResourceReference inline.
             fhirMedicationOrder.Medication = new ResourceReference(){
                 Reference = fhirClient.Endpoint.OriginalString +"Medication/"+ medicationResourceID,
                 Display = "EhrgoHealth"
