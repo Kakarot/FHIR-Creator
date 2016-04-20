@@ -33,6 +33,12 @@ namespace FHIR_Creator
                     labelBindPatientID.Visible = false;
                     textBoxBindPatientID.Visible = false;
                     break;
+                case "SEARCH":
+                    labelMedicationOrderID.Text = "Patient ID";
+                    labelBindPatientID.Visible = false;
+                    textBoxBindPatientID.Visible = false;
+                    textBoxBindPatientID.Text = "21613";
+                    break;
             }
         }
 
@@ -49,6 +55,10 @@ namespace FHIR_Creator
                     case "POST":
                         MedicationOrderFhir medicationOrderFhirPost = new MedicationOrderFhir(textBoxFhirServer.Text, null);
                         MessageBox.Show(medicationOrderFhirPost.PerformActionPOST(textBoxBindPatientID.Text, textBoxMedicationOrderID.Text));
+                        break;
+                    case "SEARCH":
+                        MedicationOrderFhir medicationOrderFhirSearch = new MedicationOrderFhir(textBoxFhirServer.Text, null);
+                        MessageBox.Show(medicationOrderFhirSearch.PerformActionSEARCH(textBoxMedicationOrderID.Text));
                         break;
                 }
             }//end try

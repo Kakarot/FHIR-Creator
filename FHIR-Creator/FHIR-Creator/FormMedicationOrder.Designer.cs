@@ -56,7 +56,7 @@
             this.textBoxMedicationOrderID.Name = "textBoxMedicationOrderID";
             this.textBoxMedicationOrderID.Size = new System.Drawing.Size(100, 20);
             this.textBoxMedicationOrderID.TabIndex = 12;
-            this.textBoxMedicationOrderID.Text = "21633";
+            this.textBoxMedicationOrderID.Text = "21613";
             this.textBoxMedicationOrderID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelMedicationOrderID
@@ -82,7 +82,8 @@
             this.comboBoxCRUD.FormattingEnabled = true;
             this.comboBoxCRUD.Items.AddRange(new object[] {
             "POST",
-            "GET"});
+            "GET",
+            "SEARCH"});
             this.comboBoxCRUD.Location = new System.Drawing.Point(95, 101);
             this.comboBoxCRUD.Name = "comboBoxCRUD";
             this.comboBoxCRUD.Size = new System.Drawing.Size(72, 21);

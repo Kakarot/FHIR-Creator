@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hl7.Fhir.Rest;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,6 +47,25 @@ namespace FHIR_Creator
             result = medicationOrder.PostMedicationOrder(patientID, medicationOrderName);
 
 
+            return result;
+        }
+
+        public string PerformActionSEARCH(string patientID)
+        {
+            var result = "";
+            var medicationOrder = new MedicationOrder(url.Trim());
+            // var allergyIntolerance = new AllergyIntolerance("http://fhirtest.uhn.ca/baseDstu2/");
+            //var patientID = 6140; //Patient ID for FHIR Server
+
+            // var medications = new List<string>() { "hydrocodone", "aspirin" }; //medications the patient is taking
+            //var response = allergyIntolerance.GetListOfMedicationAllergies(patientID, medications).ToList();
+            var response = medicationOrder.SearchPatientsMedication(patientID);
+            //var medicationCodes = response.Keys;
+            //foreach (string m in medicationCodes)
+            //{
+            //    result += m;
+            //}
+            result = response;
             return result;
         }
     }

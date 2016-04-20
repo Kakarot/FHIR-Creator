@@ -173,12 +173,20 @@ public class AllergyIntolerance
         if (listOfentries.Count == 0)
             return "No Allergy Intolerance entries found on the FHIR server for: "+patientID;
 
-        string allergyIDs = String.Empty;
+        string medicationOrderIDs = String.Empty;
         foreach(var entry in listOfentries)
         {
-            allergyIDs += entry.Resource.Id+"\n";
+            medicationOrderIDs += entry.Resource.Id+"\n";
         }
-        return allergyIDs;
+
+
+        //At this point we have a list of MedicationOrder IDs
+        //Now for each medicationorder, we need the medication associated with it.
+        //Note: MedicationOrder and Medication have a 1:1 mapping.
+
+
+
+        return "bad";
      
     }//end SearchKnownAllergiesOnPatientID
 }

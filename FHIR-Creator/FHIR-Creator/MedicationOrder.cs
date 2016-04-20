@@ -26,14 +26,14 @@ namespace FHIR_Creator
         {
             var medicationOrderResource = fhirClient.Read<Hl7.Fhir.Model.MedicationOrder>("MedicationOrder/" + medicationOrderID);
             string returnName = String.Empty;
-           // medicationOrderResource.Medication = new CodeableConcept();
+            // medicationOrderResource.Medication = new CodeableConcept();
             //var test = medicationOrderResource.Medication.GetExtensionValue<Coding>("medicationCodeableConcept");
-            
-            
+
+
             //The difficulty here is that this is considered a custom element and there is no model for it.
             //So just return the patient the resource is bound to
             return medicationOrderResource.Patient.Reference;
-            
+
         }
 
         public string PostMedicationOrder(string patientID, string medicationName)
@@ -54,8 +54,9 @@ namespace FHIR_Creator
 
             //There is no API for "Reference" in MedicationOrder model, unlike Patient model.
             //You must initialize ResourceReference inline.
-            fhirMedicationOrder.Medication = new ResourceReference(){
-                Reference = fhirClient.Endpoint.OriginalString +"Medication/"+ medicationResourceID,
+            fhirMedicationOrder.Medication = new ResourceReference()
+            {
+                Reference = fhirClient.Endpoint.OriginalString + "Medication/" + medicationResourceID,
                 Display = "EhrgoHealth"
             };
 
@@ -71,6 +72,63 @@ namespace FHIR_Creator
 
             returnID += medicationOrderResource.Id;
             return returnID;
+        }
+
+        public string SearchPatientsMedication(string patientID)
+        {
+            IList<string> listOfMedications = new List<string>();
+
+            //First we need to set up the Search Param Object
+            SearchParams mySearch = new SearchParams();
+
+            //Create a tuple containing search parameters for SearchParam object
+            // equivalent of "MedicationOrder?patient=6116";
+            Tuple<string, string> mySearchTuple = new Tuple<string, string>("patient", patientID);
+            mySearch.Parameters.Add(mySearchTuple);
+
+            //Query the fhir server with search parameters, we will retrieve a bundle
+            var searchResultResponse = fhirClient.Search<Hl7.Fhir.Model.MedicationOrder>(mySearch);
+
+            //There is an array of "entries" that can return. Get a list of all the entries.
+            var listOfentries = searchResultResponse.Entry;
+
+            if (listOfentries.Count == 0)
+                return "No Medication Order entries found on the FHIR server for PatientID: " + patientID;
+
+
+
+            //Initializing in for loop is not the greatest.
+            foreach (var entry in listOfentries)
+            {
+
+                //The entries we have, do not contain the medication reference.
+
+                var medicationOrderResource = fhirClient.Read<Hl7.Fhir.Model.MedicationOrder>("MedicationOrder/" + entry.Resource.Id);
+
+                //Casted this because ((ResourceReference)medicationOrderResource.Medication).Reference
+                //is not pretty as a parameter
+                ResourceReference castedResourceReference = (ResourceReference)medicationOrderResource.Medication;
+
+                var medicationResource = fhirClient.Read<Hl7.Fhir.Model.Medication>(castedResourceReference.Reference);
+
+                CodeableConcept castedCodeableConcept = medicationResource.Code;
+                List<Coding> listOfCodes = castedCodeableConcept.Coding;
+
+
+                foreach (var c in listOfCodes)
+                {
+                    listOfMedications.Add(c.Code);
+                }
+
+
+            }
+            string returnResult = String.Empty;
+            foreach (var m in listOfMedications)
+            {
+                returnResult += m + "\n"; //Stringbuilder class would be better
+            }
+
+            return returnResult;
         }
     }
 }
